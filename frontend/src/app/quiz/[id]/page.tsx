@@ -16,13 +16,10 @@ interface Question {
   id: string;
   category: string;
   question: string;
-  correctAnswer: string;
-  incorrectAnswers: string[];
-  options?: string[];
+  correctAnswer?: string; // Optional on frontend during quiz
+  incorrectAnswers?: string[];
+  options: string[];
 }
-
-const TRIVIA_API_URL =
-  process.env.NEXT_PUBLIC_TRIVIA_API_URL || "https://the-trivia-api.com/api";
 
 export default function QuizPage({
   params,
@@ -33,20 +30,14 @@ export default function QuizPage({
   const queryClient = useQueryClient();
   const { id } = use(params);
 
+  const [answersToken, setAnswersToken] = useState<string | null>(null);
+
   const { data: questions = [], isLoading: loading } = useQuery({
     queryKey: ["questions", id],
     queryFn: async () => {
-      const res = await fetch(
-        `${TRIVIA_API_URL}/questions?categories=${id}&limit=15`,
-      );
-      if (!res.ok) throw new Error("API Error");
-      const data = await res.json();
-      return data.map((q: Question) => ({
-        ...q,
-        options: [...q.incorrectAnswers, q.correctAnswer].sort(
-          () => Math.random() - 0.5,
-        ),
-      })) as Question[];
+      const res = await api.get(`/quiz/questions?category=${id}`);
+      setAnswersToken(res.data.data.answersToken);
+      return res.data.data.questions as Question[];
     },
     staleTime: Infinity,
   });
@@ -96,35 +87,39 @@ export default function QuizPage({
 
   const finalizeQuiz = async (finalAnswers: Record<string, string>) => {
     setIsSubmitting(true);
-    const correctCount = questions.reduce((acc, q) => {
-      return finalAnswers[q.id] === q.correctAnswer ? acc + 1 : acc;
-    }, 0);
-
-    const payload = {
-      score: correctCount,
-      totalQuestions: questions.length,
-      questions,
-      userAnswers: finalAnswers,
-      category: id,
-    };
 
     try {
       const res = await api.post("/quiz/submit", {
-        score: correctCount,
-        totalQuestions: questions.length,
+        userAnswers: finalAnswers,
+        answersToken,
         category: id,
       });
+
       toast.success(res.data.message || "Score saved!");
       queryClient.invalidateQueries({ queryKey: ["leaderboard"] });
+
+      // Reconstruct questions with correct answers for the results page
+      const correctAnswers = res.data.correctAnswers;
+      const questionsWithAnswers = questions.map((q) => ({
+        ...q,
+        correctAnswer: correctAnswers[q.id],
+      }));
+
+      const payload = {
+        score: res.data.calculatedScore,
+        totalQuestions: questions.length,
+        questions: questionsWithAnswers,
+        userAnswers: finalAnswers,
+        category: id,
+      };
+
+      sessionStorage.setItem("quizResult", JSON.stringify(payload));
+      router.push("/results");
     } catch (err: any) {
       console.error("[Quiz Service]: Submission failure", err);
       toast.error(err.response?.data?.message || "Failed to save score");
-    } finally {
       setIsSubmitting(false);
     }
-
-    sessionStorage.setItem("quizResult", JSON.stringify(payload));
-    router.push("/results");
   };
 
   const handleReset = () => {
