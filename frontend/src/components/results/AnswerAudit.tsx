@@ -83,7 +83,7 @@ export function AnswerAudit({ questions, userAnswers }: AnswerAuditProps) {
                               : "text-danger font-medium"
                         }`}
                       >
-                        {isUnanswered ? "ERR_TIMEOUT" : uA}
+                        {isUnanswered ? "Timed Out" : uA}
                       </span>
                     </div>
                   </div>
