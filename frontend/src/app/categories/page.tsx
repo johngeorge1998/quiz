@@ -11,6 +11,7 @@ import {
   FlaskConical,
   BookOpen,
   Coffee,
+  Volleyball,
 } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import api from "@/lib/api";
@@ -21,7 +22,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const CATEGORY_MAP = [
   { id: "music", title: "Music", Icon: Music },
-  { id: "sport_and_leisure", title: "Sports", Icon: Activity },
+  { id: "sport_and_leisure", title: "Sports", Icon: Volleyball },
   { id: "film_and_tv", title: "Film & TV", Icon: Film },
   { id: "history", title: "History", Icon: Landmark },
   { id: "geography", title: "Geography", Icon: Globe },

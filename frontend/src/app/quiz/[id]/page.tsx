@@ -174,7 +174,7 @@ export default function QuizPage({
           className="gap-2 -ml-2 text-muted-foreground hover:text-foreground"
         >
           <RotateCcw className="w-3.5 h-3.5" />
-          Terminate Session
+          Reset
         </Button>
         <Button
           onClick={handleNext}
