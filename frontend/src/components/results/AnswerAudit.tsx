@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { Check, X, AlertCircle } from "lucide-react";
 import { GeistMono } from "geist/font/mono";
