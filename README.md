@@ -7,6 +7,7 @@ A full-stack quiz application built with Next.js, Express, and MongoDB. This pro
 ## Tech Stack
 
 ### Frontend
+
 - Framework: [Next.js](https://nextjs.org/) (App Router)
 - Styling: [Tailwind CSS](https://tailwindcss.com/)
 - State Management: [TanStack Query](https://tanstack.com/query/latest)
@@ -14,6 +15,7 @@ A full-stack quiz application built with Next.js, Express, and MongoDB. This pro
 - Forms: React Hook Form with Zod validation
 
 ### Backend
+
 - Runtime: Node.js with TypeScript
 - Framework: [Express.js](https://expressjs.com/)
 - Database: [MongoDB](https://www.mongodb.com/) using Mongoose
@@ -35,6 +37,7 @@ A full-stack quiz application built with Next.js, Express, and MongoDB. This pro
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js (v18+)
 - pnpm package manager
 - MongoDB instance
@@ -42,17 +45,21 @@ A full-stack quiz application built with Next.js, Express, and MongoDB. This pro
 ### Installation
 
 1. Clone the repository
+
    ```bash
    git clone <repository-url>
    cd quiz
    ```
 
 2. Backend Setup
+
    ```bash
    cd backend
    pnpm install
    ```
+
    Create a .env file in the backend directory:
+
    ```env
    PORT=5000
    MONGO_URI=your_mongodb_connection_string
@@ -77,24 +84,28 @@ A full-stack quiz application built with Next.js, Express, and MongoDB. This pro
 It is recommended to run the backend and frontend in separate terminal windows.
 
 ### Start Backend
+
 ```bash
 cd backend
 pnpm dev
 ```
 
 ### Start Frontend
+
 ```bash
 cd frontend
 pnpm dev
 ```
 
 The application will be available at:
+
 - Frontend: http://localhost:3000
 - Backend API: http://localhost:5000
 
 ---
 
 ## Features
+
 - User Authentication (Signup/Login)
 - Dynamic Quiz Categories
 - Real-time Score Tracking

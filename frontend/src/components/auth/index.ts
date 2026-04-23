@@ -1,2 +1,2 @@
-export * from './AuthForm';
-export * from './auth-schema';
+export * from "./AuthForm";
+export * from "./auth-schema";

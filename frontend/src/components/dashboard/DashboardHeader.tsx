@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Sparkles, LogOut } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
+import React from "react";
+import { Sparkles, LogOut } from "lucide-react";
+import { Button } from "@/components/ui/Button";
 
 interface DashboardHeaderProps {
   username: string;
@@ -21,7 +21,12 @@ export function DashboardHeader({ username, onLogout }: DashboardHeaderProps) {
           <p className="text-muted text-sm mt-0.5">Welcome, {username}</p>
         </div>
       </div>
-      <Button variant="outline" size="sm" onClick={onLogout} className="gap-2 h-9 px-4">
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={onLogout}
+        className="gap-2 h-9 px-4"
+      >
         <LogOut className="w-4 h-4" />
         <span className="hidden sm:inline">Sign Out</span>
       </Button>

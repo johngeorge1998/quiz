@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
 export function QuizLoading() {
   return (
@@ -14,7 +14,9 @@ export function QuizLoading() {
         <div className="skeleton h-6 w-3/4 mb-3 rounded" />
         <div className="skeleton h-6 w-1/2 mb-10 rounded" />
         <div className="grid grid-cols-1 gap-3">
-          {[1, 2, 3, 4].map(i => <div key={i} className="skeleton h-12 w-full rounded" />)}
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="skeleton h-12 w-full rounded" />
+          ))}
         </div>
       </div>
     </div>

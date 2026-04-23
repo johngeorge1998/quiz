@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
-import api from '@/lib/api';
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import api from "@/lib/api";
 
 interface User {
   _id: string;
@@ -38,18 +38,18 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
      */
     const hydrateSession = async () => {
       try {
-        const { data } = await api.get('/auth/me');
+        const { data } = await api.get("/auth/me");
         if (isMounted) {
           setUser(data.data);
-          
-          if (window.location.pathname === '/') {
-            router.push('/categories');
+
+          if (window.location.pathname === "/") {
+            router.push("/categories");
           }
         }
       } catch (error) {
         if (isMounted) {
           setUser(null);
-          if (window.location.pathname !== '/') router.push('/');
+          if (window.location.pathname !== "/") router.push("/");
         }
       } finally {
         if (isMounted) setLoading(false);
@@ -65,17 +65,17 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const login = (newUser: User) => {
     setUser(newUser);
-    router.push('/categories');
+    router.push("/categories");
   };
 
   const logout = async () => {
     try {
-      await api.post('/auth/logout');
+      await api.post("/auth/logout");
     } catch (e) {
-      console.error('[Auth Context]: Logout invalidation failure', e);
+      console.error("[Auth Context]: Logout invalidation failure", e);
     }
     setUser(null);
-    router.push('/');
+    router.push("/");
   };
 
   return (

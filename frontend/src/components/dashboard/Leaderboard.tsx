@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Trophy, User as UserIcon } from 'lucide-react';
+import React from "react";
+import { Trophy, User as UserIcon } from "lucide-react";
 
 interface LeaderboardEntry {
   _id: string;
@@ -60,9 +60,13 @@ export function Leaderboard({ leaderboard, isLoading }: LeaderboardProps) {
                     <UserIcon className="w-3.5 h-3.5 text-muted-foreground" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-sm font-semibold text-foreground">{entry.userId?.username || 'Unknown'}</span>
+                    <span className="text-sm font-semibold text-foreground">
+                      {entry.userId?.username || "Unknown"}
+                    </span>
                     <span className="text-[10px] uppercase text-muted tracking-wider mt-0.5">
-                      {entry.category ? entry.category.replace(/_/g, ' ') : 'General'}
+                      {entry.category
+                        ? entry.category.replace(/_/g, " ")
+                        : "General"}
                     </span>
                   </div>
                 </div>

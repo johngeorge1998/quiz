@@ -3,18 +3,18 @@
 @theme {
   --color-background: #ffffff;
   --color-foreground: #000000;
-  
+
   --color-primary: #000000;
   --color-primary-hover: #333333;
   --color-primary-foreground: #ffffff;
-  
+
   --color-secondary: #fafafa;
   --color-secondary-hover: #f5f5f5;
   --color-secondary-foreground: #000000;
 
   --color-muted: #666666;
   --color-muted-foreground: #888888;
-  
+
   --color-border: #eaeaea;
   --color-border-hover: #888888;
 
@@ -51,7 +51,9 @@
   background: var(--color-background);
   border: 1px solid var(--color-border);
   border-radius: 6px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .vercel-panel:hover {
@@ -93,18 +95,18 @@
   @theme {
     --color-background: #000000;
     --color-foreground: #ededed;
-    
+
     --color-primary: #ffffff;
     --color-primary-hover: #cccccc;
     --color-primary-foreground: #000000;
-    
+
     --color-secondary: #0a0a0a;
     --color-secondary-hover: #171717;
     --color-secondary-foreground: #ededed;
 
     --color-muted: #888888;
     --color-muted-foreground: #666666;
-    
+
     --color-border: #333333;
     --color-border-hover: #888888;
 
@@ -125,14 +127,13 @@
   }
 }
 
-
-[data-sonner-toast][data-type='success'] {
+[data-sonner-toast][data-type="success"] {
   background: var(--color-success) !important;
   color: white !important;
   border-color: var(--color-success) !important;
 }
 
-[data-sonner-toast][data-type='error'] {
+[data-sonner-toast][data-type="error"] {
   background: var(--color-danger) !important;
   color: white !important;
   border-color: var(--color-danger) !important;

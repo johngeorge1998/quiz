@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
@@ -8,7 +8,7 @@ const connectDB = async () => {
     if (error instanceof Error) {
       console.error(`Error: ${error.message}`);
     } else {
-      console.error('Unknown error during connection');
+      console.error("Unknown error during connection");
     }
     process.exit(1);
   }
