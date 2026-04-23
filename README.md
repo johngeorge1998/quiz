@@ -10,7 +10,7 @@ A full-stack quiz application built with Next.js, Express, and MongoDB. This pro
 
 - Framework: [Next.js](https://nextjs.org/) (App Router)
 - Styling: [Tailwind CSS](https://tailwindcss.com/)
-- State Management: [TanStack Query](https://tanstack.com/query/latest)
+- Data Fetching & Caching: [TanStack Query](https://tanstack.com/query/latest)
 - UI Components: [Radix UI](https://www.radix-ui.com/) and [Lucide Icons](https://lucide.dev/)
 - Forms: React Hook Form with Zod validation
 
