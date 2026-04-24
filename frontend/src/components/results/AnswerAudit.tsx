@@ -18,7 +18,7 @@ export function AnswerAudit({ questions, userAnswers }: AnswerAuditProps) {
     <div>
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-sm font-semibold tracking-tight text-foreground">
-          Diagnostic Log
+          Summary
         </h2>
       </div>
 
@@ -28,10 +28,10 @@ export function AnswerAudit({ questions, userAnswers }: AnswerAuditProps) {
             #
           </div>
           <div className="text-xs font-semibold uppercase tracking-widest text-muted">
-            Question Details
+            Questions
           </div>
           <div className="text-xs font-semibold uppercase tracking-widest text-muted">
-            Evaluation Match
+            Result
           </div>
         </div>
 
@@ -62,7 +62,7 @@ export function AnswerAudit({ questions, userAnswers }: AnswerAuditProps) {
                 <div className="py-2 md:py-4 md:pr-4 flex flex-col justify-center space-y-3">
                   <div>
                     <span className="text-[10px] uppercase tracking-widest text-muted font-medium block mb-1">
-                      Your Output
+                      Your Answer
                     </span>
                     <div className="flex items-start gap-2">
                       <div className="mt-0.5">
@@ -91,7 +91,7 @@ export function AnswerAudit({ questions, userAnswers }: AnswerAuditProps) {
                   {!isCorrect && (
                     <div className="pl-5 border-l-2 border-border ml-1">
                       <span className="text-[10px] uppercase tracking-widest text-muted font-medium block mb-1">
-                        Expected Match
+                        Correct Answer
                       </span>
                       <span
                         className={`${GeistMono.className} text-xs text-foreground font-medium`}
